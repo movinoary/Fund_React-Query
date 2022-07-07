@@ -1,5 +1,6 @@
 import React from "react";
-import { useSuperHeroData } from "../hooks/useSuperHeroesdata";
+import { Link } from "react-router-dom";
+import { useSuperHeroesData } from "../hooks/useSuperHeroesdata";
 
 export const RQSuperHeroesPage = () => {
   const onSuccess = data => {
@@ -11,7 +12,7 @@ export const RQSuperHeroesPage = () => {
   };
 
   const { isLoading, data, isError, error, isFetched, refetch } =
-    useSuperHeroData(onSuccess, onError);
+    useSuperHeroesData(onSuccess, onError);
 
   console.log({ isLoading, isFetched });
 
@@ -27,12 +28,16 @@ export const RQSuperHeroesPage = () => {
     <>
       <h2>RQSuperHerosPage</h2>
       <button onClick={refetch}>Fecth Heroes</button>
-      {/* {data?.data.map(hero => {
-        return <div key={hero.name}>{hero.name}</div>;
-      })} */}
-      {data.map(heroName => {
-        return <div key={heroName}>{heroName}</div>;
+      {data?.data.map(hero => {
+        return (
+          <div key={hero.id}>
+            <Link to={`/rq-super-heroes/${hero.id}`}>{hero.name}</Link>
+          </div>
+        );
       })}
+      {/* {data.map(heroName => {
+        return <div key={heroName}>{heroName}</div>;
+      })} */}
     </>
   );
 };
