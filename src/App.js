@@ -8,6 +8,7 @@ import { SuperHeroesPage } from "./components/SuperHeroes.page";
 import { RQSuperHeroPage } from "./components/RQSuperHero.page";
 import { ParrallerQueriesPage } from "./components/ParrallerQueries.page";
 import { DynamicParallelPage } from "./components/DynamixParallel.page";
+import { DependentQueriesPage } from "./components/DependentQueries.page";
 
 const queryClient = new QueryClient();
 
@@ -33,9 +34,15 @@ function App() {
               <li>
                 <Link to="/rq-dynamic-parallel">RQ Dynamic Parallel</Link>
               </li>
+              <li>
+                <Link to="/rq-dependent">RQ Dynamic Parallel</Link>
+              </li>
             </ul>
           </nav>
           <Switch>
+            <Route path="/rq-dependent">
+              <DependentQueriesPage email="vishwas@example.com" />
+            </Route>
             <Route path="/rq-dynamic-parallel">
               <DynamicParallelPage heroIds={[1, 3]} />
             </Route>
