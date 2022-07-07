@@ -13,8 +13,6 @@ export const RQSuperHeroesPage = () => {
     return <h2>Loading...</h2>;
   }
 
-  console.log(data);
-
   return (
     <>
       <h2>RQSuperHerosPage</h2>
