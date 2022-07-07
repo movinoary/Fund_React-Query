@@ -11,8 +11,8 @@ export const RQSuperHeroesPage = () => {
     "super-heroes",
     fetchSuperHeros,
     {
-      refetchOnMount: true,
-      refetchOnWindowFocus: true,
+      refetchInterval: 10000,
+      refetchIntervalInBackground: true,
     }
   );
 
