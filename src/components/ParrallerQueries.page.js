@@ -14,5 +14,24 @@ export const ParrallerQueriesPage = () => {
   const { data: superHeroes } = useQuery("super-heroes", fetchSuperHero);
   const { data: friends } = useQuery("friends", fetchFriends);
 
-  return <div>ParrallerQueries.page</div>;
+  return (
+    <div>
+      <h1>Super Heroes</h1>
+      {superHeroes?.data.map(hero => {
+        return (
+          <div key={hero.id}>
+            <div>{hero.name}</div>
+          </div>
+        );
+      })}
+      <h1>Super Heroes Friends</h1>
+      {friends?.data.map(hero => {
+        return (
+          <div key={hero.id}>
+            <div>{hero.name}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 };
